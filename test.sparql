@@ -1,0 +1,213 @@
+PREFIX gr:<http://purl.org/goodrelations/v1#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#Datatype properties: Float type
+
+SELECT *
+WHERE {
+# 1. amountOfThisGood
+  {
+    ?object a gr:TypeAndQuantityNode .
+    ?object gr:amountOfThisGood ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 7. hasCurrencyValue
+  UNION { #PriceSpecification
+    ?object a gr:PriceSpecification .
+    ?object gr:hasCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #UnitPriceSpecification
+    ?object a gr:UnitPriceSpecification .
+    ?object gr:hasCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #PaymentChargeSpecification
+    ?object a gr:PaymentChargeSpecification .
+    ?object gr:hasCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #DeliveryChargeSpecification
+    ?object a gr:DeliveryChargeSpecification .
+    ?object gr:hasCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 13. hasMaxCurrencyValue
+  UNION { #PriceSpecification
+    ?object a gr:PriceSpecification .
+    ?object gr:hasMaxCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #UnitPriceSpecification
+    ?object a gr:UnitPriceSpecification .
+    ?object gr:hasMaxCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #PaymentChargeSpecification
+    ?object a gr:PaymentChargeSpecification .
+    ?object gr:hasMaxCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #DeliveryChargeSpecification
+    ?object a gr:DeliveryChargeSpecification .
+    ?object gr:hasMaxCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 15. hasMaxValueFloat
+  UNION {
+    ?object a gr:QuantitativeValueFloat .
+    ?object gr:hasMaxValueFloat ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 17. hasMinCurrencyValue
+  UNION { #PriceSpecification
+    ?object a gr:PriceSpecification .
+    ?object gr:hasMinCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #UnitPriceSpecification
+    ?object a gr:UnitPriceSpecification .
+    ?object gr:hasMinCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #PaymentChargeSpecification
+    ?object a gr:PaymentChargeSpecification .
+    ?object gr:hasMinCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  } UNION { #DeliveryChargeSpecification
+    ?object a gr:DeliveryChargeSpecification .
+    ?object gr:hasMinCurrencyValue ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 19. hasMinValueFloat
+  UNION {
+    ?object a gr:QuantitativeValueFloat .
+    ?object gr:hasMinValueFloat ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+# 24. hasValueFloat
+  UNION {
+    ?object a gr:QuantitativeValueFloat .
+    ?object gr:hasValueFloat ?number .
+    FILTER (
+      ( datatype(?number) != xsd:float )
+      || (
+        !regex(str(?number), "^[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+$")
+        && !regex(str(?number), "^[0-9]+[eE][+-]?[0-9]+$")
+        && !regex(str(?number), "^[0-9]+.[0-9]+[eE][+-]?[0-9]+$")
+      )
+    )
+  }
+}
