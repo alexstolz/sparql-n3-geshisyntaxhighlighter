@@ -33,11 +33,11 @@
  *
  ************************************************************************************/
 
-$REGEXP_ENDDELIMITER = "(<SEMI>|[\],}\.]\s)";
+$REGEXP_ENDDELIMITER = "(<SEMI>|[\],}\.])";
 $REGEXP_VAR = "\?\w+";
 $REGEXP_URIREF = "&lt;[^\s]*&gt;";
-$REGEXP_CURIE = "\w+:\w+";
-$REGEXP_LITERAL = "(&quot;(?:(?!&quot;).)*&quot;|'[^']*'|[0-9]+(\.[0-9]+)?)(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@\w+)?";
+$REGEXP_CURIE = "\w+:[\w\-]+";
+$REGEXP_LITERAL = "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3}|[0-9]+(\.[0-9]+)?|\w+(:\w+)?\(.*\))(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@[\w\-]+)?";
 $REGEXP_SUBJECT = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+";
 $REGEXP_PREDICATE = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+|a\s+";
 $REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL)\s*$REGEXP_ENDDELIMITER";
@@ -71,7 +71,7 @@ $language_data = array (
     'METHODS' => array(),
     'REGEXPS' => array(
         // subjects
-        10 => array(
+        1 => array(
             GESHI_SEARCH => "($REGEXP_SUBJECT)($REGEXP_PREDICATE)($REGEXP_OBJECT)", 
             GESHI_REPLACE => '\\1',
             GESHI_MODIFIERS => 'si',
@@ -79,7 +79,7 @@ $language_data = array (
             GESHI_AFTER => '\\2\\3'
             ),
         // predicates
-        11 => array(
+        2 => array(
             GESHI_SEARCH => "($REGEXP_PREDICATE)($REGEXP_OBJECT)", 
             GESHI_REPLACE => '\\1',
             GESHI_MODIFIERS => 'si',
@@ -87,7 +87,7 @@ $language_data = array (
             GESHI_AFTER => '\\2'
             ),
         // objects
-        6 => array(
+        3 => array(
             GESHI_SEARCH => "($REGEXP_OBJECT)", 
             GESHI_REPLACE => '\\1',
             GESHI_MODIFIERS => 'si',
@@ -95,16 +95,16 @@ $language_data = array (
             GESHI_AFTER => ''
             ),
         // uris
-        12 => array(
+        5 => array(
             GESHI_SEARCH => "($REGEXP_URIREF)", 
             GESHI_REPLACE => '\\1',
             GESHI_MODIFIERS => 'si',
             GESHI_BEFORE => '',
             GESHI_AFTER => ''
             ),
-         1 => 'xsd:\w+',
-         4 => 'bif:\w+',
-         5 => "(&quot;(?:(?!&quot;).)*&quot;|'[^']*')", // string literals
+         6 => 'xsd:\w+',
+         7 => 'bif:\w+',
+         4 => "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3})", // string literals
          //8 => $REGEXP_VAR, // highlight variables with custom color
      
     ),
@@ -126,9 +126,9 @@ $language_data = array (
             3 => 'color: #226699; font-weight: bold;'
         ),
         'COMMENTS' => array(
-            1 => 'color: #808080; font-style: italic;',
+            1 => 'color: #408080; font-style: italic;',
             //2 => 'color: #808080; font-style: italic;',
-            'MULTI' => 'color: #808080; font-style: italic;'
+            'MULTI' => 'color: #408080; font-style: italic;'
         ),
         'ESCAPE_CHAR' => array(
             0 => 'color: #000099; font-weight: bold;'
@@ -142,23 +142,16 @@ $language_data = array (
         'NUMBERS' => array(),
         'METHODS' => array(),
         'SYMBOLS' => array(
-            0 => 'color: #000000; font-weight: bold;'
+            0 => 'color: #000000;'
         ),
         'SCRIPT' => array(),
         'REGEXPS' => array(
-            0 => 'color: #000000; font-weight: bold;',
-            1 => 'color: #000000; font-weight: bold;',
-            2 => 'color: #000000; font-weight: bold;',
-            3 => 'color: #000000; font-weight: bold;',
-            4 => 'color: #000000; font-weight: bold;',
-            5 => 'color: red; font-weight: bold;',
-            6 => 'color: #6699FF; font-weight: bold;',
-            7 => 'color: #996633; font-weight: bold;',
-            8 => 'color: #004400; font-weight: bold;',
-            9 => 'color: orange; font-weight: bold;',
-            10 => 'color: blue; font-weight: bold;',
-            11 => 'color: green; font-weight: bold;',
-            12 => 'color: #990000; font-weight: bold;'
+            1 => 'color: #0000FF; font-weight: bold;',
+            2 => 'color: #666666;',
+            3 => 'color: #7D9029;',
+            4 => 'color: #BA2121;',
+            5 => 'color: #008000;',
+            7 => 'color: #996633;',
         )
     ),
     'URLS' => array(

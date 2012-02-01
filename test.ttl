@@ -1,32 +1,93 @@
-# test 1
-foo:store a gr:Location;
-    foaf:page urn:test .
-
 @prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix xsd: <http://xmlns.org/#> .
 
-# other tests
-<http://www.acme.com/#store> a gr:Location ;
-    gr:hasOpeningHoursSpecification [ a gr:OpeningHoursSpecification;
-            gr:closes "20:00:00";
-            gr:hasOpeningHoursDayOfWeek gr:Friday,
-                gr:Monday,
-                gr:Thursday,
-                gr:Tuesday,
-                gr:Wednesday ;
-            gr:opens "08:00:00"^^<http://xmlns.org/string> ];
-    gr:name "Hepp's Happy Burger < 100 Restaurant" .
+foo:offer a gr:Offering;
+    gr:name "Hepp Personal SCSI Controller Card"@en;
+    gr:hasPriceSpecification [ a gr:UnitPriceSpecification;
+                               gr:hasCurrency "EUR"^^xsd:string;
+                               gr:hasCurrencyValue "99.99"^^xsd:float;
+                               gr:validThrough "2012-11-30T23:59:59Z"^^xsd:dateTime ] ;
+    gr:hasPriceSpecification [ a gr:DeliveryChargeSpecification;
+                               gr:appliesToDeliveryMethod gr:UPS;
+                               gr:hasCurrency "EUR"^^xsd:string;
+                               gr:hasCurrencyValue "10"^^xsd:float;
+                               gr:eligibleRegions "DE"^^xsd:string ] .
+                               
+foo:model a gr:ProductOrServiceModel;
+    gr:name "ACME Colorvision 123"@en;
+    gr:description "The ACME Colorvision 123 is the leading-edge color TV from our company."@en;
+    gr:hasEAN_UCC-13 "1234567890123"^^xsd:string;
+    gr:width [ a gr:QuantitativeValue;
+               gr:hasValueFloat "102.0"^^xsd:float;
+               gr:hasUnitOfMeasurement "CMT"^^xsd:string ];
+    gr:height [ a gr:QuantitativeValue;
+               gr:hasValueFloat "60.0"^^xsd:float;
+               gr:hasUnitOfMeasurement "CMT"^^xsd:string ].
+               
+foo:offer a gr:Offering;
+  gr:name "Hepp Personal SCSI Controller Card";
+  gr:description "The Hepp Personal SCSI is a 16-bit add-on card ...";
+  gr:hasBusinessFunction gr:Sell;
+  gr:hasPriceSpecification [ a gr:UnitPriceSpecification;
+                             gr:hasCurrency "USD"^^xsd:string;
+                             gr:hasCurrencyValue "99.99"^^xsd:float;
+                             gr:validThrough "2012-11-30T23:59:59"^^xsd:dateTime ];
+  gr:hasWarrantyPromise [ a gr:WarrantyPromise;
+                          rdfs:comment """For this item,
+                          we grants a 12-month 
+warranty on all parts and labor,
+including pick-up at your home."""@en;
+                             gr:durationOfWarrantyInMonths "12"^^xsd:int;
+                             gr:hasWarrantyScope gr:PartsAndLabor-PickUp ] .
+               
+foo:GarmentSize a owl:Class;
+    rdfs:subClassOf gr:QualitativeValue;
+    rdfs:label "Garment sizes (value class)".
+    
+foo:M a foo:GarmentSize;
+    rdfs:label "M - Medium."@en;
+    gr:lesser foo:L.
 
+foo:L a foo:GarmentSize;
+    rdfs:label "L - Large."@en;
+    gr:greater foo:M.
 
-<http://www.acme.com/#store> a gr:Location ;
-    gr:hasOpeningHoursSpecification [ a gr:OpeningHoursSpecification;
-            gr:closes "20:00:00";
-            gr:weight 1;gr:class "test";
-            gr:hasOpeningHoursDayOfWeek gr:Friday,
-                gr:Monday,
-                gr:Thursday,
-                gr:Tuesday,
-                gr:Wednesday ;
-            gr:opens "08:00:00"^^xsd:string ];
-    gr:name "Hepp's Burger Restaurant for <test> <happy people"^^xsd:string .
+foo:size a owl:ObjectProperty ;
+   rdfs:subPropertyOf gr:qualitativeProductOrServiceProperty ;
+   rdfs:range foo:GarmentSize ;
+   rdfs:label "size (0..1)"@en .
+	
+foo:tshirt a gr:SomeItems;
+    gr:name "Blue T-Shirt (Size M)"@en;
+    gr:color "blue"@en;
+    foo:size foo:M.
+    
+foo:offer a gr:Offering;
+    gr:includes foo:product .
 
+foo:product a gr:SomeItems;
+    gr:name "Canon Rebel T2i (EOS 550D)"@en;
+    gr:description "The Rebel T2i EOS 550D is Canon's latest digital SLR camera."@en;
+    gr:hasEAN_UCC-13 "9781906672799"^^xsd:string;
+    foaf:depiction <http://www.example.com/canon_rebel_t2i.jpg>;
+    foaf:page <http://www.example.com/canon_rebel_t2i.html> .
+    
+foo:offer a gr:Offering;
+    gr:hasBusinessFunction gr:Sell;
+# ... other offer properties omitted for readability
+    gr:includesObject [ a gr:TypeAndQuantityNode;
+                        gr:amountOfThisGood "1"^^xsd:float;
+                        gr:hasUnitOfMeasurement "C62"^^xsd:string;
+                        gr:typeOfGood foo:cellphone ];
+    gr:includesObject [ a gr:TypeAndQuantityNode;
+                        gr:amountOfThisGood "2"^^xsd:float;
+                        gr:hasUnitOfMeasurement "C62"^^xsd:string;
+                        gr:typeOfGood foo:charger ] .
 
+foo:cellphone a gr:SomeItems;
+    gr:name "ACME Cellphone BulkyTalky"@en;
+    gr:hasEAN_UCC-13 "1234567890123"^^xsd:string .
+
+foo:charger a gr:SomeItems;
+    gr:name "ACME Travelcharger"@en;
+    gr:hasEAN_UCC-13 "2345678901234"^^xsd:string .

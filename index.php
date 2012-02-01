@@ -1,7 +1,7 @@
 <?php
 include_once("geshi/geshi.php");
-$source = file_get_contents("test.sparql");
-$language = "sparql";
+$source = file_get_contents("test.xml");
+$language = "xml";//"sparql";
 
 $geshi = new GeSHi($source, $language);
 
