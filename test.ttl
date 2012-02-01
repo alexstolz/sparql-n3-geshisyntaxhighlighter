@@ -14,6 +14,7 @@ foo:offer a gr:Offering;
                                gr:eligibleRegions "DE"^^xsd:string ] .
                                
 foo:model a gr:ProductOrServiceModel;
+    owl:unionOf (schema:Person schema:Organization);
     gr:name "ACME Colorvision 123"@en;
     gr:description "The ACME Colorvision 123 is the leading-edge color TV from our company."@en;
     gr:hasEAN_UCC-13 "1234567890123"^^xsd:string;

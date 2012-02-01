@@ -37,14 +37,15 @@ $REGEXP_ENDDELIMITER = "(<SEMI>|[\],}\.])";
 $REGEXP_VAR = "\?\w+";
 $REGEXP_URIREF = "&lt;[^\s]*&gt;";
 $REGEXP_CURIE = "\w+:[\w\-]+";
+$REGEXP_SET = "\(.*\)";
 $REGEXP_LITERAL = "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3}|[0-9]+(\.[0-9]+)?|\w+(:\w+)?\(.*\))(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@[\w\-]+)?";
 $REGEXP_SUBJECT = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+";
 $REGEXP_PREDICATE = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+|a\s+";
-$REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL)\s*$REGEXP_ENDDELIMITER";
+$REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL|$REGEXP_SET)\s*$REGEXP_ENDDELIMITER";
 
 $language_data = array (
     'LANG_NAME' => 'SPARQL',
-    'COMMENT_SINGLE' => array(1 =>'# '),
+    'COMMENT_SINGLE' => array(1 =>'# ', 2 => '## ', 3 => '### '),
     'COMMENT_MULTI' => array('/*' => '*/'),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     'QUOTEMARKS' => array(),//"'", '"', '`'),
@@ -127,7 +128,8 @@ $language_data = array (
         ),
         'COMMENTS' => array(
             1 => 'color: #408080; font-style: italic;',
-            //2 => 'color: #808080; font-style: italic;',
+            2 => 'color: #408080; font-style: italic;',
+            3 => 'color: #408080; font-style: italic;',
             'MULTI' => 'color: #408080; font-style: italic;'
         ),
         'ESCAPE_CHAR' => array(
