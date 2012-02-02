@@ -44,7 +44,7 @@ $REGEXP_PREDICATE = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+|a\s+";
 $REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL|$REGEXP_SET)\s*$REGEXP_ENDDELIMITER";
 
 $language_data = array (
-    'LANG_NAME' => 'SPARQL',
+    'LANG_NAME' => 'N3_SPARQL',
     'COMMENT_SINGLE' => array(1 =>'# ', 2 => '## ', 3 => '### '),
     'COMMENT_MULTI' => array('/*' => '*/'),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
@@ -103,10 +103,10 @@ $language_data = array (
             GESHI_BEFORE => '',
             GESHI_AFTER => ''
             ),
-         6 => 'xsd:\w+',
+         //6 => 'xsd:\w+',
          7 => 'bif:\w+',
          4 => "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3})", // string literals
-         //8 => $REGEXP_VAR, // highlight variables with custom color
+         8 => $REGEXP_VAR, // highlight variables with custom color
      
     ),
     'SYMBOLS' => array(
@@ -122,9 +122,9 @@ $language_data = array (
     ),
     'STYLES' => array(
         'KEYWORDS' => array(
-            1 => 'color: #000099; font-weight: bold;',
-            2 => 'color: #000099; font-weight: bold;',
-            3 => 'color: #226699; font-weight: bold;'
+            1 => 'color: #008000; font-weight: bold;',
+            2 => 'color: #008000; font-weight: bold;',
+            // 3 => 'color: #226699; font-weight: bold;'
         ),
         'COMMENTS' => array(
             1 => 'color: #408080; font-style: italic;',
@@ -152,8 +152,10 @@ $language_data = array (
             2 => 'color: #666666;',
             3 => 'color: #7D9029;',
             4 => 'color: #BA2121;',
-            5 => 'color: #008000;',
+            5 => 'color: #0000FF;',
+            6 => 'color: #996633;',
             7 => 'color: #996633;',
+            8 => 'color: #19177C; font-weight: normal;',
         )
     ),
     'URLS' => array(

@@ -1,33 +1,19 @@
-<!-- in RDFa 1.1, you can use the abbreviation:
-<div profile="http://www.heppnetz.de/grprofile/"> -->
-<div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:gr="http://purl.org/goodrelations/v1#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
- 
-  <div about="#offering" typeof="gr:Offering">
-    <div property="gr:name" content="Canon Rebel T2i (EOS 550D) $899" xml:lang="en"></div>
-    <div property="gr:description" content="The Rebel T2i EOS 550D is Cannon's
-top-of-the-line consumer digital SLR camera.
-It can shoot up to 18 megapixel resolution photos and features an ISO range of 100-6400.
-Now just $ 899 $" xml:lang="en"></div>
-    <div rel="foaf:depiction"
-         resource="http://a.img-dpreview.com/previews/CanonEOS550D/images/intro.jpg">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>An offer to sell a / some Hammer</title>
+</head>
+<body>
+<div itemscope itemtype="http://schema.org/Product" itemid="#product">
+    <link itemprop="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" href="http://www.productontology.org/id/Hammer" />
+    <span itemprop="name">.. a short name for the object ...</span>
+    Product description: 
+    <span itemprop="description">... a longer description ...</span>
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" itemid="#offer">
+        <span itemprop="price">$19.99</span> 
+        <a itemprop="availability" href="http://schema.org/InStock"></a>In stock
     </div>
-    <div rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell">
-    </div>
-    <div property="gr:hasEAN_UCC-13" content="013803123784" datatype="xsd:string"></div>
-    <div rel="gr:hasPriceSpecification">
-      <div typeof="gr:UnitPriceSpecification">
-        <div property="gr:hasCurrency" content="USD" datatype="xsd:string"></div>
-        <div property="gr:hasCurrencyValue" content="899" datatype="xsd:float"></div>
-      </div>
-    </div>
-    <div rel="gr:acceptedPaymentMethods"
-         resource="http://purl.org/goodrelations/v1#PayPal"></div>
-    <div rel="gr:acceptedPaymentMethods"
-         resource="http://purl.org/goodrelations/v1#MasterCard"></div>
-    <div rel="foaf:page" resource="http://myshop.com/canon-rebel-t2i/"></div>
-  </div>
 </div>
+</body>
+</html>
