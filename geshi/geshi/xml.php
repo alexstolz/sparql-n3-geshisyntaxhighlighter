@@ -11,6 +11,8 @@
  *
  * CHANGES
  * -------
+ * 2012/02/02 (1.0.8.10)
+ *   -  Customized look and feel of highlighted text (alex.stolz@ebusiness-unibw.org)
  * 2008/05/23 (1.0.7.22)
  *   -  Added description of extra language features (SF#1970248)
  * 2005/12/28 (1.0.2)

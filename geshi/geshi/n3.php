@@ -4,14 +4,10 @@
  * -------
  * Author: Alex Stolz (alex.stolz@ebusiness-unibw.org), Christian Fürber (christian@fuerber.com)
  * Copyright: (c) 2012 E-Business and Web Science Research Group (http://www.unibw.de/ebusiness/)
- * Date Started: 2012/01/31
- * Release Version: 1.1.0
+ * Date Started: 2012/02/02
+ * Release Version: 1.1.1
  *
  * SPARQL language file for GeSHi.
- *
- * TODO
- * -------------------------
- * * recognize ; correctly
  *
  *************************************************************************************
  *
