@@ -34,9 +34,9 @@ $REGEXP_VAR = "\?\w+";
 $REGEXP_URIREF = "&lt;[^\s]*&gt;";
 $REGEXP_CURIE = "\w+:[\w\-]+";
 $REGEXP_SET = "\(.*\)";
-$REGEXP_LITERAL = "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3}|[0-9]+(\.[0-9]+)?|\w+(:\w+)?\(.*\))(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@[\w\-]+)?";
+$REGEXP_LITERAL = "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3}|\s+[0-9]+(\.[0-9]+)?|\w+(:\w+)?\(.*\))(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@[\w\-]+)?";
 $REGEXP_SUBJECT = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+";
-$REGEXP_PREDICATE = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+|a\s+";
+$REGEXP_PREDICATE = "$REGEXP_VAR\s*|$REGEXP_CURIE\s*|$REGEXP_URIREF\s*|a\s*";
 $REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL|$REGEXP_SET)\s*$REGEXP_ENDDELIMITER";
 
 $language_data = array (
@@ -49,17 +49,18 @@ $language_data = array (
     'KEYWORDS' => array(
         1 => array(
         '@prefix',
-        'AS','ASC','ASK','BIND','BINDINGS','CONSTRUCT','COUNT','DESC','DESCRIBE','DISTINCT',
-        'EXISTS','FILTER','FROM','GRAPH','GROUP BY','HAVING','IF','IN','INSERT','LIMIT',
-        'MINUS','MODIFY','NAMED','NOT EXISTS','NOT IN','OFFSET','OPTIONAL','ORDER BY',
-        'PREFIX','REDUCED','SELECT','SERVICE','UNION','WHERE'
+        'ADD','ALL','AS','ASC','ASK','BASE','BIND','BINDINGS','CLEAR','CONSTRUCT','COPY','COUNT','CREATE',
+        'DATA','DEFAULT','DELETE','DESC','DESCRIBE','DISTINCT','DROP',
+        'EXISTS','FILTER','FROM','GRAPH','GROUP BY','HAVING','IF','IN','INSERT','INTO','LIMIT','LOAD',
+        'MINUS','MODIFY','MOVE','NAMED','NOT EXISTS','NOT IN','OFFSET','OPTIONAL','ORDER BY',
+        'PREFIX','REDUCED','REPLACE','SELECT','SERVICE','SILENT','TO','UNION','USING','WHERE','WITH'
         ),
         2 => array(
-        'abs','BNODE','bound','ceil','CONCAT','CONTAINS','datatype','day','ENCODE_FOR_URI',
-        'floor','hours','IRI','isBlank','isIRI','isLiteral','isNumeric','lang','langMatches',
-        'LCASE','MD5','minutes','month','now','rand','regex','round','sameTerm','seconds','SHA1',
-        'SHA224','SHA256','SHA384','SHA512','str','STRDT','STRENDS','STRLANG','STRLEN','STRSTARTS',
-        'SUBSTR','timezone','tz','UCASE','URI','year'
+        'abs','AVG','BNODE','bound','ceil','COALESCE','CONCAT','CONTAINS','datatype','day','ENCODE_FOR_URI',
+        'floor','GROUP_CONCAT','hours','IRI','isBlank','isIRI','isLiteral','isNumeric','isURI','lang','langMatches',
+        'LCASE','MAX','MD5','MIN','minutes','month','now','rand','regex','round','sameTerm','SAMPLE','seconds','SEPARATOR','SHA1',
+        'SHA224','SHA256','SHA384','SHA512','str','STRAFTER','STRBEFORE','STRDT','STRENDS','STRLANG','STRLEN','STRSTARTS',
+        'SUBSTR','SUM','timezone','tz','UCASE','undef','URI','year'
         ),
         /*3 => array(
         'a', 'rdf:type'

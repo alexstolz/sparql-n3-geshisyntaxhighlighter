@@ -1,15 +1,15 @@
 PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX foo: <#>
 
-# test query
-## test query no. 1
-CONSTRUCT {
-    ?s gr:ean ?ean;
-        gr:name bif:concat(?ean,?test) .
-    FILTER(bif:contains(?sparwl, "test123"))
-}
+SELECT ?name
 WHERE {
-    ?s a gr:Offering;
-        gr:hasEAN_UCC-13 ?ean;
-        gr:description "ACME"@en .
-    FILTER(!bound(?s))
+  ?offer a gr:Offering;
+    gr:name ?name;
+    gr:hasPriceSpecification [
+        a gr:UnitPriceSpecification;
+        gr:hasCurrency "EUR";
+        gr:hasCurrencyValue 10.00; # test numeric literals
+        gr:hasUnitOfMeasurement "C62"
+    ];
+    gr:includes foo:product1 .
 }
