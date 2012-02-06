@@ -41,7 +41,7 @@ $REGEXP_OBJECT = "[\[]|($REGEXP_VAR|$REGEXP_CURIE|$REGEXP_URIREF|$REGEXP_LITERAL
 
 $language_data = array (
     'LANG_NAME' => 'N3_SPARQL',
-    'COMMENT_SINGLE' => array(1 =>'# ', 2 => '## ', 3 => '### '),
+    'COMMENT_SINGLE' => array(1 =>'# ', 2 => '##'),
     'COMMENT_MULTI' => array('/*' => '*/'),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     'QUOTEMARKS' => array(),//"'", '"', '`'),
@@ -126,7 +126,6 @@ $language_data = array (
         'COMMENTS' => array(
             1 => 'color: #408080; font-style: italic;',
             2 => 'color: #408080; font-style: italic;',
-            3 => 'color: #408080; font-style: italic;',
             'MULTI' => 'color: #408080; font-style: italic;'
         ),
         'ESCAPE_CHAR' => array(

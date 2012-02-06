@@ -1,13 +1,14 @@
 PREFIX gr: <http://purl.org/goodrelations/v1#>
 PREFIX foo: <#>
 
+# This is a comment
 SELECT ?name
-WHERE {
+WHERE { ## this is a second comment
   ?offer a gr:Offering;
-    gr:name ?name;
+    gr:name ?name; ##this is a third comment
     gr:hasPriceSpecification [
         a gr:UnitPriceSpecification;
-        gr:hasCurrency "EUR";
+        gr:hasCurrency "EUR"; #### this is a fourth comment
         gr:hasCurrencyValue 10.00; # test numeric literals
         gr:hasUnitOfMeasurement "C62"
     ];
