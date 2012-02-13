@@ -32,7 +32,7 @@
 $REGEXP_ENDDELIMITER = "(<SEMI>|[\],}\.])";
 $REGEXP_VAR = "\?\w+";
 $REGEXP_URIREF = "&lt;[^\s]*&gt;";
-$REGEXP_CURIE = "\w+:[\w\-]+";
+$REGEXP_CURIE = "\w*:[\w\-]+";
 $REGEXP_SET = "\(.*\)";
 $REGEXP_LITERAL = "((&quot;){1,3}(?:(?!&quot;).)*(&quot;){1,3}|\s+[0-9]+(\.[0-9]+)?|\w+(:\w+)?\(.*\))(\^\^($REGEXP_URIREF|$REGEXP_CURIE)|\@[\w\-]+)?";
 $REGEXP_SUBJECT = "$REGEXP_VAR\s+|$REGEXP_CURIE\s+|$REGEXP_URIREF\s+";
