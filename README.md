@@ -1,4 +1,4 @@
-## GeSHi syntax highlighter for SPARQL and N3/Turtle ##
+## GeSHi Syntax Highlighter for SPARQL and N3/Turtle ##
 
 This project provides a **SPARQL and N3/Turtle** syntax highlighting extension for **GeSHi**, the generic syntax highlighter for PHP. The objective to develop this extension was the lack of syntax highlighting for SPARQL and Turtle in the GeSHi extension of Mediawiki. But the syntax highlighter can just as easily be plugged into any other GeSHi-capable CMS.
 
