@@ -23,9 +23,9 @@ This GeSHi extension was developed by the *E-Business and Web Science Research G
 
 For a demo of the extension please refer to the [Axioms Web page](http://wiki.goodrelations-vocabulary.org/Axioms) in the GoodRelations Wiki.
 
------ | -----
+E-Business and Web Science Research Group | Bundeswehr University Munich
+----------------------------------------- | ----------------------------
 ![http://www.ebusiness-unibw.org](http://www.heppnetz.de/ontologies/goodrelations/logo_researchgroup.png) | ![http://www.unibw.de/ebusiness/](http://www.ebusiness-unibw.org/unibw.gif)
------ | -----
 
 ### Acknowledgements ###
 
